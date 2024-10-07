@@ -43,6 +43,7 @@ $description = isset($_COOKIE['description']) ? $_COOKIE['description'] : $defau
             <h1><?php echo $name; ?></h1>
             <p><?php echo $job; ?></p>
             <p><?php echo $email; ?></p>
+            <button id="editPersonalInfo">Edit Personal Info</button>
         </header>
 
         <section class = "profile">
@@ -73,7 +74,7 @@ $description = isset($_COOKIE['description']) ? $_COOKIE['description'] : $defau
         </div>
 
         <footer>
-            <p>&copy; 2024 Alexandre ECHAZARRETA.</p>
+            <p>&copy; Alexandre ECHAZARRETA 2024</p>
         </footer>
     </div>
     
