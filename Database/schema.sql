@@ -1,0 +1,27 @@
+-- Mise à jour de la table User
+ALTER TABLE User
+    MODIFY Name VARCHAR(100) NOT NULL,
+    MODIFY password VARCHAR(255) NOT NULL,
+    MODIFY email VARCHAR(255) NOT NULL,
+    MODIFY id INT PRIMARY KEY AUTO_INCREMENT,
+    MODIFY role VARCHAR(50) DEFAULT 'user';
+
+-- Mise à jour de la table CV
+ALTER TABLE CV
+    MODIFY name VARCHAR(100) NOT NULL,
+    MODIFY job VARCHAR(100) NOT NULL,
+    MODIFY age INT,
+    MODIFY email VARCHAR(255) NOT NULL,
+    MODIFY descrption TEXT,
+    MODIFY competences TEXT,
+    MODIFY id INT PRIMARY KEY AUTO_INCREMENT,
+    MODIFY user_id INT,
+    ADD FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE;
+
+-- Mise à jour de la table Projets
+ALTER TABLE Projets
+    MODIFY id INT PRIMARY KEY AUTO_INCREMENT,
+    MODIFY user_id INT,
+    MODIFY titre VARCHAR(255) NOT NULL,
+    MODIFY description TEXT,
+    ADD FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE;

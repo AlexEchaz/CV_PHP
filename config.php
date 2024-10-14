@@ -17,3 +17,8 @@ try {
 } catch (\PDOException $e) {
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
+
+define('DB_HOST', 'cv_db');
+define('DB_NAME', 'cv_php');
+define('DB_USER', 'votre_utilisateur');
+define('DB_PASS', 'votre_mot_de_passe');

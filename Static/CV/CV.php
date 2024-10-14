@@ -59,7 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p>Vous n'avez pas encore rempli votre CV.</p>
         <?php endif; ?>
 
-        <!-- Formulaire d'édition du CV (visible seulement pour l'utilisateur connecté) -->
         <h2>Modifier mon CV</h2>
         <form method="POST" action="cv.php">
             <label for="description">Description</label><br>
