@@ -6,12 +6,12 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./services/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
-      - ../CV/WithEditModalAndLoginDatabase:/app
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ../Static:/app
   app:
     build: services/php
     volumes:
-      - ../CV/WithEditModalAndLoginDatabase:/app
+      - ../Static:/app
   db:
     image: mariadb:latest
     environment:
