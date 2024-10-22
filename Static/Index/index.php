@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenue sur mon Portfolio</title>
-    <link rel="stylesheet" href="../styleIndex.css">
+    <link rel="stylesheet" href="styleIndex.css">
 </head>
 <body>
 
@@ -14,11 +14,11 @@
         <h1>Mon Portfolio</h1>
         <nav>
             <ul>
-                <li><a href="/../Welcome/Welcome.php">Accueil</a></li>
-                <li><a href="/Static/LoginPage/LoginPage.php">Connexion</a></li>
-                <li><a href="/Static/Contact/Contact.php">Contact</a></li>
-                <li><a href="/Static/CV/CV.php">Mon CV</a></li>
-                <li><a href="/Static/Projets/Projets.php">Projets</a></li>
+                <li><a href="Welcome.php">Accueil</a></li>
+                <li><a href="LoginPage.php">Connexion</a></li>
+                <li><a href="Contact.php">Contact</a></li>
+                <li><a href="CV.php">Mon CV</a></li>
+                <li><a href="Projet.php">Projets</a></li>
             </ul>
         </nav>
     </header>
@@ -26,7 +26,7 @@
     <main>
         <section class="introduction">
             <h2>Bienvenue !</h2>
-            <p>Découvrez mes compétences et mes projets. Je suis un développeur passionné par le web.</p>
+            <p>Découvrez mes compétences et mes projets. Je suis un développeur passionné par les jeux vidéos.</p>
         </section>
         
         <section class="services">

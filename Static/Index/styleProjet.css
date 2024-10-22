@@ -1,0 +1,88 @@
+/* Static/Projets/styleProjets.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.add-project {
+    margin-bottom: 40px;
+}
+
+.add-project h2 {
+    color: #007bff;
+}
+
+.add-project form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-project label {
+    margin-top: 10px;
+}
+
+.add-project input, .add-project textarea {
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.add-project button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.project-list h2 {
+    color: #007bff;
+}
+
+.project-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.project-list ul li {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
