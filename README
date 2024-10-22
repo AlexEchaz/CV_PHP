@@ -1,0 +1,74 @@
+DESCRIPTION
+
+This project is a CV/Portfolio web application that allows a user to:
+-Create and manage a dynamic CV
+-Add and modify projects
+-Manage personal information
+-Use an authentication interface with user roles
+-Customize the style of the CV and project pages based on the user role
+-The project is built using PHP, MySQL (via MariaDB), Docker, and uses Nginx as the web server.
+
+Features
+-index : the main page from we naviguate in the pages
+-Welcome : a model of CV-type page
+-LoginPage : will allow to the user to login or logout
+-Contact : will allow to send email to my Ynov adress
+-CV : will allow to the user to create a new CV
+-Projet : will allow to the user to create new projects
+
+Prerequisites
+-Docker: Make sure Docker and Docker Compose are installed on your machine. Install Docker
+-Visual Studio Code or any compatible IDE
+
+Installation and Setup
+1. Clone the project
+-Copy the code with git clone https://github.com/your-repo/cv-portfolio.git
+2. Build and start the Docker containers
+-The project uses Docker Compose to set up and start the services.
+-in the terminal, write docker-compose up -d
+
+3. Set up the database
+-Once the containers are running, open Adminer in your browser at : http://localhost:8080
+-Log in to the database:
+    -Server: db
+    -Username: root
+    -Password: root
+    -Database: cv_db
+
+4. Access the application
+-Once Docker is running, the application will be accessible in your browser at : http://127.0.0.1/
+.
+├── Database
+│   ├── DatabaseConnection.php      # Database connection file
+│   ├── schema.sql                  # SQL script to create tables
+├── Docker
+│   ├── nginx
+│   │   └── nginx.conf              # Nginx configuration
+│   ├── docker-compose.yaml         # Docker Compose configuration
+│   ├── Dockerfile                  # Dockerfile for PHP container
+├── Static
+│   ├── Contact
+│   ├── CV
+│   ├── Index
+│   ├── LandingPage
+│   ├── LoginPage
+│   ├── Profile
+│   ├── Projects
+├── index.php                       # Main router file
+└── README.md                       # This file
+
+-Database: Manages the database connection and contains SQL scripts for database structure.
+-Docker: Contains configuration files for Docker and Nginx.
+-Static: Contains the static pages of the application, each with its own directory and related files.
+-index.php: The main file that acts as the router for the application.
+-config.php : manage session/cookie settings
+
+Nginx Configuration
+-The Nginx server is configured through the nginx.conf file to redirect all requests to the index.php file, which handles page routing.
+
+Environment Variables
+Make sure the following environment variables are correctly configured in your docker-compose.yaml file:
+
+Upcoming Features
+-Ending the page Login, Contact, CV and Projet
+-Advanced customization of styles for each user
