@@ -22,7 +22,7 @@ Prerequisites
 
 Installation and Setup
 1. Clone the project
--Copy the code with git clone https://github.com/your-repo/cv-portfolio.git
+-Copy the code with git clone https://github.com/AlexEchaz/CV_PHP.git
 2. Build and start the Docker containers
 -The project uses Docker Compose to set up and start the services.
 -in the terminal, write docker-compose up -d
@@ -38,24 +38,31 @@ Installation and Setup
 4. Access the application
 -Once Docker is running, the application will be accessible in your browser at : http://127.0.0.1/
 .
-├── Database
-│   ├── DatabaseConnection.php      # Database connection file
-│   ├── schema.sql                  # SQL script to create tables
 ├── Docker
 │   ├── nginx
-│   │   └── nginx.conf              # Nginx configuration
-│   ├── docker-compose.yaml         # Docker Compose configuration
-│   ├── Dockerfile                  # Dockerfile for PHP container
+│   │   └── nginx.conf
+│   ├── docker-compose.yaml
+│   ├── Dockerfile
 ├── Static
-│   ├── Contact
-│   ├── CV
 │   ├── Index
-│   ├── LandingPage
-│   ├── LoginPage
-│   ├── Profile
-│   ├── Projects
-├── index.php                       # Main router file
-└── README.md                       # This file
+│   │   ├── Database
+│   │   │   ├── DatabaseConnection.php
+│   │   │   ├── schema.sql
+|   │   ├──CV.php
+|   │   ├──index.php
+|   │   ├──LoginPage.php
+|   │   ├──LogoutPage.php
+|   │   ├──Projet.php
+│   │   └──Welcome.php
+│   ├── style
+|   │   ├──StyleCV.css
+|   │   ├──styleIndex.css
+|   │   ├──styleLoginPage.css
+|   │   ├──styleLogout.css
+|   │   ├──styleProjet.css
+|   │   ├──styleWelcome.css
+├── config.php
+└── README.md
 
 -Database: Manages the database connection and contains SQL scripts for database structure.
 -Docker: Contains configuration files for Docker and Nginx.
@@ -72,3 +79,119 @@ Make sure the following environment variables are correctly configured in your d
 Upcoming Features
 -Ending the page Login, Contact, CV and Projet
 -Advanced customization of styles for each user
+
+
+
+
+
+
+J'ai un TP à faire en m'aidant de PHP et Docker :
+Contexte : dans le cadre du cours de PHP nous allons réaliser un projet web. Le but est de créer plusieurs pages, de faire persister les données tout en suivant les bonnes pratiques.
+
+Consigne : Vous devez réaliser un site CV/Portfolio comprenant plusieurs pages et proposant diverses fonctionnalités pour gérer des CV/Portfolio.
+
+Modalités de rendu : afin d’évaluer la qualité de votre travail vous devez obligatoirement me rendre un lien Github. Quelqu’un qui n’a jamais fait de PHP doit pouvoir démarrer vôtre projet.
+
+Contenu attendu :
+
+Pages du site web (Il doit y avoir au moins) : 
+-Une page d'accueil (landing page statique) 
+-Une page contact -Une page CV modifiable 
+-Une page qui liste des “projets” 
+-Une page de login 
+-Une page logout 
+-Une page profil
+
+Fonctionnalités du site Web Général : 
+-Votre site doit posséder une en-tête et un pied de page 
+-La navigation le fait via un menu Contact 
+-La page affiche un formulaire qui envoie des mails Authentification 
+-Possibilité de se connecter/déconnecter 
+-Possibilité d’ajouter des utilisateurs (avec des rôles) CV 
+-Quand un utilisateur est connecté, il voit ses infos sur le CV 
+-Un utilisateur connecté peut modifier ses informations de CV 
+-Un utilisateur connecté peut customiser le style de la page CV Projets/Portfolio 
+-Un utilisateur connecté peut ajouter des projets 
+-Un admin peut customiser le style de la page Projets/Portfolio Profil 
+-L'utilisateur connecté peut modifier ses informations
+
+Objets (minimum attendu en terme d'objets et de données associées) :
+
+Utilisateur/User : 
+-email 
+-nom/name 
+-mot de passe/password 
+-rôle
+
+CV 
+-descriptions 
+-compétences/skills
+
+Voici l'organisation de mon projet : 
+├── Docker
+│   ├── nginx
+│   │   └── nginx.conf
+│   ├── docker-compose.yaml
+│   ├── Dockerfile
+├── Static
+│   ├── Index
+│   │   ├── Database
+│   │   │   ├── DatabaseConnection.php
+│   │   │   ├── schema.sql
+|   │   ├──CV.php
+|   │   ├──index.php
+|   │   ├──LoginPage.php
+|   │   ├──LogoutPage.php
+|   │   ├──Projet.php
+│   │   └──Welcome.php
+│   ├── style
+|   │   ├──StyleCV.css
+|   │   ├──styleIndex.css
+|   │   ├──styleLoginPage.css
+|   │   ├──styleLogout.css
+|   │   ├──styleProjet.css
+|   │   ├──styleWelcome.css
+├── config.php
+└── README.md
+
+J'ai déjà programmé la base données.
+Le Docker et le docker-compose.yaml, et le nginx.conf sont prêt
+La page d'accueil (depuis index.php) ne fonctionne plus, et permet normalement de rediriger vers les autres pages (Accueil (un modèle de CV), Connexion/LoginPage, Contact, Mon CV (qui permettra à l'utilisateur de créer ses propres CV), et Projets))
+
+Cependant, la page d'accueil bugue et m'affiche : 
+Chemin actuel : /app/Index
+Fichiers dans le répertoire courant :
+Array
+(
+    [0] => .
+    [1] => ..
+    [2] => CV.php
+    [3] => Database
+    [4] => LoginPage.php
+    [5] => LogoutPage.php
+    [6] => Projet.php
+    [7] => Welcome.php
+    [8] => index.php
+)
+Fichiers dans /app :
+Array
+(
+    [0] => .
+    [1] => ..
+    [2] => Index
+    [3] => config.php
+    [4] => style
+)
+Warning: require_once(/app/Index/Database/app/config.php): Failed to open stream: No such file or directory in /app/Index/Database/DatabaseConnection.php on line 2
+Fatal error: Uncaught Error: Failed opening required '/app/Index/Database/app/config.php' (include_path='.:/usr/local/lib/php') in /app/Index/Database/DatabaseConnection.php:2 Stack trace: #0 /app/Index/index.php(15): require_once() #1 {main} thrown in /app/Index/Database/DatabaseConnection.php on line 2
+
+Et la commande docker-compose exec app ls -la /app donne : 
+version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+total 4
+drwxrwxrwx 1 root root 4096 Oct 27 21:40 .
+drwxr-xr-x 1 root root 4096 Oct 27 21:40 ..
+drwxrwxrwx 1 root root 4096 Oct 27 21:17 Index
+-rwxrwxrwx 1 root root  513 Oct 27 21:41 config.php
+drwxrwxrwx 1 root root 4096 Oct 27 21:13 style
+
+Peux-tu m'aider s'il te plaît, si tu as besoin d'un bout du code, n'hésite pas à demander ?

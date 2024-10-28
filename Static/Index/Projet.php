@@ -41,7 +41,7 @@ $stmt->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Projets</title>
-    <link rel="stylesheet" href="styleProjets.css">
+    <link rel="stylesheet" href="../style/styleProjets.css">
 </head>
 <body>
     <header>
