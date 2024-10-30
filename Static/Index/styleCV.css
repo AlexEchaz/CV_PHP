@@ -1,0 +1,141 @@
+/* Style de base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e9eff6, #d0dce6);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-top: 4px solid #0056b3;
+    animation: fadeIn 1.2s ease-out;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* En-tête */
+h1 {
+    text-align: center;
+    color: #0056b3;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+}
+
+/* Styles de formulaire */
+form label {
+    display: block;
+    margin: 20px 0 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 1em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 86, 179, 0.3);
+}
+
+/* Bouton de soumission */
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #0056b3;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button[type="submit"]:hover {
+    background-color: #004494;
+    transform: translateY(-2px);
+}
+
+/* Style pour chaque section */
+section {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f7f9fc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+    color: #0056b3;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+/* Icônes dans les labels (à personnaliser selon les sections) */
+label[for="name"]::before { content: "👤 "; }
+label[for="job"]::before { content: "💼 "; }
+label[for="email"]::before { content: "📧 "; }
+label[for="age"]::before { content: "🎂 "; }
+label[for="description"]::before { content: "📝 "; }
+label[for="experience"]::before { content: "📂 "; }
+label[for="education"]::before { content: "🎓 "; }
+label[for="competences"]::before { content: "💡 "; }
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    button[type="submit"] {
+        font-size: 1em;
+        padding: 10px;
+    }
+}

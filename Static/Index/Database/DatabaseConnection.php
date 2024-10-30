@@ -6,7 +6,7 @@ class DatabaseConnection {
     private static $instance = null;
     private $conn;
 
-    private function __construct() {
+    public function __construct() {
         $this->conn = new PDO(
             "mysql:host=".DB_HOST.";dbname=".DB_NAME,
             DB_USER,

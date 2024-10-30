@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae</title>
+    <link rel="stylesheet" href="styleCV.css">
+</head>
+
+<body>
+
+    <?php
+        $name = "name";
+        $job = "étudiant";
+        $email = "address.email@mail.com";
+        $description = "description";
+    ?>
+
+    <div class = "container">
+        <header>
+            <h1><?php echo $name; ?></h1>
+            <p><?php echo $job; ?></p>
+            <p><?php echo $email; ?></p>
+        </header>
+
+        <section class = "profile">
+            <h2>Profil</h2>
+            <p><?php echo $description; ?></p>
+        </section>
+
+        <section class = "experience">
+            <h2>Expériences professionnelles</h2>
+            <div class="job">
+                <p>stage de X semaine dans X Entreprise</p>
+            </div>
+        </section>
+
+        <section class="education">
+            <h2>Formation</h2>
+            <div class="school">
+                <h3>Baccalauréat</h3>
+                <p>20XX - 20XX</p>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2>Compétences</h2>
+            <ul>
+                <li>HTML, CSS</li>
+                <li>React, JavaScript</li>
+                <li>Go, C++</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 20XX name</p>
+        </footer>
+    </div>
+    
+</body>
+</html>

@@ -1,13 +1,8 @@
 <?php
-// Static/LoginPage/login.php
+session_start();
+require_once __DIR__ . '/Database/DatabaseConnection.php';
 
-// Empêcher l'accès direct à ce fichier
-if (!defined('INCLUDED_FROM_INDEX')) {
-    die('Accès direct non autorisé');
-}
-
-// Traitement du formulaire de connexion
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     
@@ -26,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Email ou mot de passe incorrect";
     }
 }
+
 ?>
 
 <!-- 
@@ -35,6 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../style/styleLoginPage.css">
 </head>
 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleLoginPage.css">
+</head>
 
 <main>
     <div class="login-container">

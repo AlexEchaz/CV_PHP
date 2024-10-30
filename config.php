@@ -1,16 +1,12 @@
 <?php
-$host = 'db';
-$db = 'cv_db';
-$charset = 'utf8mb4';
-$user = 'root';
-$pass = 'root';
+define('DB_HOST', 'db');
+define('DB_NAME', 'cv_db');
+define('DB_CHARSET', 'utf8mb4');
+define('DB_USER', 'root');
+define('DB_PASS', 'root');
 
-//define('DB_HOST', 'db');
-//define('DB_NAME', 'cv_db');
-//define('DB_USER', 'root');
-//define('DB_PASS', 'root');
-
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+// Configuration de PDO pour les connexions dans d'autres parties de l'application
+$dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=".DB_CHARSET;
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -18,7 +14,7 @@ $options = [
 ];
 
 try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
+    $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
 } catch (\PDOException $e) {
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
