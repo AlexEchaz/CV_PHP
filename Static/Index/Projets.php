@@ -90,7 +90,7 @@ $Projets = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </main>
 
     <footer>
-        <p>&copy; 2024 Mon Portfolio</p>
+        <p>&copy; 2024 Alexandre ECHAZARRETA. Tous droits réservés.</p>
     </footer>
 </body>
 </html>
