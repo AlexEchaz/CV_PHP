@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     $register_email = $_POST['register_email'] ?? '';
     $register_username = $_POST['register_username'] ?? '';
     $register_password = $_POST['register_password'] ?? '';
-    $role = isset($_POST['is_admin']) && $_POST['is_admin'] === 'yes' ? 'admin' : 'user'; // Défaut à 'user'
+    $role = isset($_POST['is_admin']) && $_POST['is_admin'] === 'yes' ? 'admin' : 'user';
 
     if ($register_email && $register_username && $register_password) {
         try {
