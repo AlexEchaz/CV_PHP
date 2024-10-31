@@ -44,9 +44,12 @@ $Projets = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <h1>Mes Projets</h1>
         <nav>
             <ul>
-                <li><a href="../Index/index.php">Accueil</a></li>
-                <li><a href="../CV/CV.php">Mon CV</a></li>
-                <li><a href="../LogoutPage.php">Déconnexion</a></li>
+                <li><a href="LoginPage.php">Connexion</a></li>
+                <li><a href="register.php">Enregistrement</a></li>
+                <li><a href="Contact.php">Contact</a></li>
+                <li><a href="CV.php">Modifier mon CV</a></li>
+                <li><a href="Projets.php">Projets</a></li>
+                <li><a href="LogoutPage.php">Deconnexion</a></li>
             </ul>
         </nav>
     </header>
