@@ -1,38 +1,34 @@
 <?php
-session_start();
 
-// Vérifier si l'utilisateur est connecté
-#if (!isset($_SESSION['user_id'])) {
-#    header("Location: ../LoginPage/LoginPage.php");
-#    exit();
-#}
-
-// Connexion à la base de données
-require_once '../Database/DatabaseConnection.php';
-
-// Ajouter un projet si le formulaire est soumis
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $date = $_POST['date'];
-    $user_id = $_SESSION['user_id']; // ID de l'utilisateur connecté
-
-    // Insérer dans la base de données
-    $query = "INSERT INTO projects (user_id, title, description, date) VALUES (?, ?, ?, ?)";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("isss", $user_id, $title, $description, $date);
-    $stmt->execute();
-    $stmt->close();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
 
-// Récupérer les projets de l'utilisateur connecté
-$query = "SELECT * FROM projects WHERE user_id = ?";
+if (!isset($_SESSION['user_id'])) {
+    header("Location: Projets.php");
+    exit();
+}
+
+require_once 'Database/DatabaseConnection.php';
+$conn = DatabaseConnection::getInstance()->getConnection();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $titre = $_POST['titre'];
+    $description = $_POST['description'];
+    $date = $_POST['date'];
+    $user_id = $_SESSION['user_id'];
+
+    if (!empty($titre) && !empty($description) && !empty($date)) {
+        $query = "INSERT INTO Projets (user_id, titre, description, date) VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($query);
+        $stmt->execute([$user_id, $titre, $description, $date]);
+    }
+}
+
+$query = "SELECT * FROM Projets WHERE user_id = ?";
 $stmt = $conn->prepare($query);
-$stmt->bind_param("i", $_SESSION['user_id']);
-$stmt->execute();
-$result = $stmt->get_result();
-$projects = $result->fetch_all(MYSQLI_ASSOC);
-$stmt->close();
+$stmt->execute([$_SESSION['user_id']]);
+$Projets = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +36,7 @@ $stmt->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Projets</title>
+    <title>Mes projets</title>
     <link rel="stylesheet" href="../style/styleProjets.css">
 </head>
 <body>
@@ -56,12 +52,11 @@ $stmt->close();
     </header>
 
     <main>
-        <!-- Formulaire pour ajouter un projet -->
         <section class="add-project">
             <h2>Ajouter un nouveau projet</h2>
             <form action="Projets.php" method="POST">
                 <label for="title">Titre du projet :</label>
-                <input type="text" id="title" name="title" required>
+                <input type="text" id="title" name="titre" required>
 
                 <label for="description">Description :</label>
                 <textarea id="description" name="description" required></textarea>
@@ -73,16 +68,15 @@ $stmt->close();
             </form>
         </section>
 
-        <!-- Liste des projets existants -->
         <section class="project-list">
             <h2>Mes Projets</h2>
-            <?php if (count($projects) > 0): ?>
+            <?php if (count($Projets) > 0): ?>
                 <ul>
-                    <?php foreach ($projects as $project): ?>
+                    <?php foreach ($Projets as $Projets): ?>
                         <li>
-                            <h3><?php echo htmlspecialchars($project['title']); ?></h3>
-                            <p><?php echo htmlspecialchars($project['description']); ?></p>
-                            <p>Date : <?php echo htmlspecialchars($project['date']); ?></p>
+                            <h3><?php echo htmlspecialchars($Projets['titre']); ?></h3>
+                            <p><?php echo htmlspecialchars($Projets['description']); ?></p>
+                            <p>Date : <?php echo htmlspecialchars($Projets['date']); ?></p>
                         </li>
                     <?php endforeach; ?>
                 </ul>

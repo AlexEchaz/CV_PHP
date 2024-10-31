@@ -1,9 +1,9 @@
 ALTER TABLE User
-    MODIFY Name VARCHAR(100) NOT NULL,
+    MODIFY userName VARCHAR(100) NOT NULL,
     MODIFY password VARCHAR(255) NOT NULL,
     MODIFY email VARCHAR(255) NOT NULL,
     MODIFY id INT PRIMARY KEY AUTO_INCREMENT,
-    MODIFY role VARCHAR(50) DEFAULT 'user';
+    MODIFY role Enum('admin', 'user') DEFAULT 'user';
     INSERT INTO User (userName, password, email, role) 
     VALUES ('Test User', 'password', 'test@test.com', 'user');
 
@@ -24,5 +24,6 @@ ALTER TABLE Projets
     MODIFY id INT PRIMARY KEY AUTO_INCREMENT,
     MODIFY user_id INT,
     MODIFY titre VARCHAR(255) NOT NULL,
+    MODIFY date date,
     MODIFY description TEXT,
     ADD FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE;

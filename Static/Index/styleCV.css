@@ -1,4 +1,3 @@
-/* Style de base */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #e9eff6, #d0dce6);
@@ -7,7 +6,6 @@ body {
     padding: 0;
 }
 
-/* Conteneur principal */
 .container {
     max-width: 800px;
     margin: 50px auto;
@@ -19,13 +17,11 @@ body {
     animation: fadeIn 1.2s ease-out;
 }
 
-/* Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* En-tête */
 h1 {
     text-align: center;
     color: #0056b3;
@@ -33,7 +29,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Styles de formulaire */
 form label {
     display: block;
     margin: 20px 0 8px;
@@ -67,7 +62,6 @@ textarea:focus {
     box-shadow: 0 0 6px rgba(0, 86, 179, 0.3);
 }
 
-/* Bouton de soumission */
 button[type="submit"] {
     width: 100%;
     padding: 14px;
@@ -87,7 +81,6 @@ button[type="submit"]:hover {
     transform: translateY(-2px);
 }
 
-/* Style pour chaque section */
 section {
     margin-bottom: 20px;
     padding: 20px;
@@ -105,7 +98,6 @@ section h2 {
     display: inline-block;
 }
 
-/* Icônes dans les labels (à personnaliser selon les sections) */
 label[for="name"]::before { content: "👤 "; }
 label[for="job"]::before { content: "💼 "; }
 label[for="email"]::before { content: "📧 "; }
@@ -115,7 +107,6 @@ label[for="experience"]::before { content: "📂 "; }
 label[for="education"]::before { content: "🎓 "; }
 label[for="competences"]::before { content: "💡 "; }
 
-/* Footer */
 footer {
     text-align: center;
     font-size: 0.9em;
@@ -123,7 +114,6 @@ footer {
     margin-top: 30px;
 }
 
-/* Responsive Design */
 @media (max-width: 600px) {
     .container {
         width: 90%;

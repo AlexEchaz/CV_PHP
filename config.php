@@ -5,7 +5,6 @@ define('DB_CHARSET', 'utf8mb4');
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
 
-// Configuration de PDO pour les connexions dans d'autres parties de l'application
 $dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=".DB_CHARSET;
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,

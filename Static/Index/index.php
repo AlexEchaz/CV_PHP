@@ -34,9 +34,10 @@ if (isset($_SESSION['user_id'])) {
         <nav>
             <ul>
                 <li><a href="LoginPage.php">Connexion</a></li>
+                <li><a href="register.php">Enregistrement</a></li>
                 <li><a href="Contact.php">Contact</a></li>
                 <li><a href="CV.php">Modifier mon CV</a></li>
-                <li><a href="Projet.php">Projets</a></li>
+                <li><a href="Projets.php">Projets</a></li>
                 <li><a href="LogoutPage.php">Deconnexion</a></li>
             </ul>
         </nav>

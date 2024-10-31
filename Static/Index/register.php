@@ -2,7 +2,6 @@
 define('INCLUDED_FROM_REGISTER', true);
 require_once __DIR__ . '/Database/DatabaseConnection.php';
 
-
 $error = '';
 $registration_error = '';
 
@@ -10,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     $register_email = $_POST['register_email'] ?? '';
     $register_username = $_POST['register_username'] ?? '';
     $register_password = $_POST['register_password'] ?? '';
-    $role = 'user';
+    $role = isset($_POST['is_admin']) && $_POST['is_admin'] === 'yes' ? 'admin' : 'user'; // Défaut à 'user'
 
     if ($register_email && $register_username && $register_password) {
         try {
@@ -42,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>S'enregistrer</title>
 </head>
 <body>
 <section class="registration-form">
@@ -63,6 +62,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
                 <div class="form-group">
                     <label for="register_password">Mot de passe :</label>
                     <input type="password" id="register_password" name="register_password" required>
+                </div>
+                <div class="form-group">
+                    <label>Voulez-vous être administrateur ?</label><br>
+                    <label for="is_admin_yes">
+                        <input type="radio" id="is_admin_yes" name="is_admin" value="yes"> Oui
+                    </label>
+                    <label for="is_admin_no">
+                        <input type="radio" id="is_admin_no" name="is_admin" value="no" checked> Non
+                    </label>
                 </div>
 
                 <button type="submit">S'inscrire'</button>

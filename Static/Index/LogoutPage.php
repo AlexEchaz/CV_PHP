@@ -1,6 +1,7 @@
 <?php
-
 session_start();
-unset($_SESSION['user_token']);
+session_unset();
 session_destroy();
 header("Location: LoginPage.php");
+exit;
+?>

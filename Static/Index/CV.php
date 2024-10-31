@@ -4,7 +4,6 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 require_once 'Database/DatabaseConnection.php';
 
-// Vérifie si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
     header("Location: LoginPage.php");
     exit();
@@ -12,16 +11,13 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Utiliser getInstance() pour obtenir l'instance unique et getConnection() pour obtenir la connexion PDO
 $conn = DatabaseConnection::getInstance()->getConnection();
 
-// Récupère les informations de CV de l'utilisateur
 $sql = "SELECT name, job, email, description, competences, experience, education, age FROM CV WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->execute([$user_id]);
 $cv = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Si le formulaire est soumis, met à jour le CV
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $job = $_POST['job'];
@@ -31,10 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $experience = $_POST['experience'];
     $education = $_POST['education'];
     
-    // Optionnel : Ajoute une valeur par défaut pour l'âge si le champ n'est pas fourni
-    $age = $_POST['age'] ?? null; // Utilise null si pas défini
+    $age = $_POST['age'] ?? null; 
 
-    // Insérer ou mettre à jour le CV
     $sql = "INSERT INTO CV (user_id, name, job, email, description, competences, experience, education, age)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON DUPLICATE KEY UPDATE 
@@ -45,15 +39,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             competences = VALUES(competences), 
             experience = VALUES(experience), 
             education = VALUES(education), 
-            age = VALUES(age)"; // Ajoute le champ age ici
+            age = VALUES(age)";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$user_id, $name, $job, $email, $description, $competences, $experience, $education, $age]);
 
-    header("Location: CV.php"); // Recharge la page pour afficher les nouvelles données
+    header("Location: CV.php");
     exit();
 }
 
-// Récupère les informations de CV si elles existent déjà
 $sql = "SELECT name, job, email, description, competences, experience, education, age FROM CV WHERE user_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->execute([$user_id]);

@@ -70,6 +70,11 @@ Installation and Setup
 -Static: Contains the static pages of the application, each with its own directory and related files.
 -index.php: The main file that acts as the router for the application.
 -config.php : manage session/cookie settings
+-register.php : used to register using your email address, a username and a password
+-Login.php : allows you to connect to your space using you email address and your password
+-CV : used to create a personnal CV
+-Projects : used to create a list of projects to be completed
+-Contact : used to send a direct email to the site administrator (does not work yet)
 
 Nginx Configuration
 -The Nginx server is configured through the nginx.conf file to redirect all requests to the index.php file, which handles page routing.
@@ -78,5 +83,4 @@ Environment Variables
 Make sure the following environment variables are correctly configured in your docker-compose.yaml file:
 
 Upcoming Features
--Ending the page Login, Contact, CV and Projet
 -Advanced customization of styles for each user
