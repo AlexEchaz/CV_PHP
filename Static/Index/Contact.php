@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nom = htmlspecialchars($_POST['nom']);
     $email = htmlspecialchars($_POST['email']);
@@ -15,6 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $successMessage = "Votre message a bien été envoyé !";
     } else {
         $errorMessage = "Une erreur est survenue. Veuillez réessayer plus tard.";
+        $errorDetails = error_get_last();
+        echo "<pre>";
+        print_r($errorDetails);
+        echo "</pre>";
     }
 }
 ?>
@@ -24,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Contact</title>
-    <link rel="stylesheet" href="../style/styleContact.css">
+    <link rel="stylesheet" href="styleContact.css">
 </head>
 <body>
     <header>

@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $experience = $_POST['experience'];
     $education = $_POST['education'];
     
-    $age = $_POST['age'] ?? null; 
+    $age = $_POST['age'] ?? null;
 
     $sql = "INSERT INTO CV (user_id, name, job, email, description, competences, experience, education, age)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -97,7 +97,7 @@ $cv = $stmt->fetch(PDO::FETCH_ASSOC);
         </form>
 
         <footer>
-            <p>&copy; 20XX <?php echo htmlspecialchars($cv['name'] ?? ''); ?></p>
+            <p>&copy; 2024 <?php echo htmlspecialchars($cv['name'] ?? ''); ?></p>
         </footer>
     </div>
 </body>

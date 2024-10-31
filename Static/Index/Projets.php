@@ -19,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_id = $_SESSION['user_id'];
 
     if (!empty($titre) && !empty($description) && !empty($date)) {
-        $query = "INSERT INTO Projets (user_id, titre, description, date) VALUES (?, ?, ?, ?)";
-        $stmt = $conn->prepare($query);
-        $stmt->execute([$user_id, $titre, $description, $date]);
-    }
+    $query = "INSERT INTO Projets (user_id, titre, description, date) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($query);
+    $stmt->execute([$user_id, $titre, $description, $date]);
+}
 }
 
 $query = "SELECT * FROM Projets WHERE user_id = ?";
@@ -37,7 +37,7 @@ $Projets = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes projets</title>
-    <link rel="stylesheet" href="../style/styleProjets.css">
+    <link rel="stylesheet" href="styleProjet.css">
 </head>
 <body>
     <header>

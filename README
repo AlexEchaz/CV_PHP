@@ -42,12 +42,16 @@ Installation and Setup
 │   ├── nginx
 │   │   └── nginx.conf
 │   ├── docker-compose.yaml
-│   ├── Dockerfile
+│   └── Dockerfile
+├── Images
+│   └── étoiles.jpg
 ├── Static
 │   ├── Index
 │   │   ├── Database
 │   │   │   ├── DatabaseConnection.php
 │   │   │   ├── schema.sql
+│   │   ├── Images
+│   │   │   └── étoiles.jpg
 |   │   ├──CV.php
 |   │   ├──index.php
 |   │   ├──LoginPage.php

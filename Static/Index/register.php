@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S'enregistrer</title>
+    <link rel="stylesheet" href="styleRegister.css">
 </head>
 <body>
 <section class="registration-form">
